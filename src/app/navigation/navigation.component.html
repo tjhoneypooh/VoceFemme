@@ -3,11 +3,10 @@
         <div id="womenshistory"></div>
         <figcaption>VoceFemme</figcaption>
     </div>
-    <img src="images/menu.svg" alt="" class="menuIcon">
     <nav>
         <div class="links">
-                <div routerLink="/dashboard">Dashboard</div>
-                <div routerLink="/about">About</div>
+                <div routerLink="/dashboard" (click)="updateHeaderDash()">Dashboard</div>
+                <div routerLink="/about" (click)="updateHeaderAbout()">About</div>
                 <div>Results</div>
         </div>
             <div class="twitter">

@@ -2,31 +2,65 @@
 .wrapper {
     padding: 50px;
     text-align: center;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e570e7+0,bf7ca3+68,a849a3+100 */
-    background: #e570e7; /* Old browsers */
+    background: #e570e7;
     background: -moz-linear-gradient(
       45deg,
       #e570e7 0%,
       #bf7ca3 68%,
       #a849a3 100%
-    ); /* FF3.6-15 */
+    ); 
     background: -webkit-linear-gradient(
       45deg,
       #e570e7 0%,
       #bf7ca3 68%,
       #a849a3 100%
-    ); /* Chrome10-25,Safari5.1-6 */
+    );
     background: linear-gradient(
       45deg,
       #e570e7 0%,
       #bf7ca3 68%,
       #a849a3 100%
-    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e570e7', endColorstr='#a849a3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    ); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e570e7', endColorstr='#a849a3',GradientType=1 ); 
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
-
         height: 100%;
         width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerTitle {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.underText {
+  font-size: 16px;
+}
+
+svg {
+  height: 35px;
+  position: absolute;
+  right: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+.menuIcon {
+  display: none;
+}
+}
+
+@media only screen and (min-width: 1440px) {
+  
 }

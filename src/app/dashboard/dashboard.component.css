@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 20px;
+  padding: 10px;
 }
 
 fieldset {
@@ -8,15 +8,65 @@ fieldset {
   margin: 10px;
 }
 
+mat-drawer-container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.toggleNavButton {
+  border: solid red 1px;
+  height: 30px;
+  width: auto;
+}
+
+mat-drawer-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.example-sidenav {
+  width: 140px;
+}
+.example-sidenav div {
+  margin: 10px;
+}
+.example-sidenav div:hover {
+  cursor: pointer;
+}
+
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+.collapsible:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+.history {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .toggleNavButton {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  
+}
+
 /* 
-
-input {
-  margin: 1em;
-}
-
-.hashtag {
-  padding-left: 1em;
-}
 
 body {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e570e7+0,bf7ca3+68,a849a3+100 */
@@ -44,83 +94,8 @@ body {
   background-attachment: fixed;
 } */
 
-/* aside {
-  color: #fff;
-  display: grid;
-  grid-template-columns: auto 40px;
-  padding: 2em;
-}
-
-img {
-  width: 30px;
-  cursor: pointer;
-}
-
-figure {
-  margin: 0;
-}
-
-figcaption {
-  font-size: 2.3em;
-  font-weight: bold;
-}
-
-nav {
-  background: white;
-}
-
-.navigation {
-  position: absolute;
-  display: block;
-  background-color: #fff;
-  width: 50%;
-  left: 0;
-  top: 0;
-  height: 100%;
-}
-
-ul {
-  display: none;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-ul li a {
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1em;
-  display: block;
-  padding: 2em;
-  background-color: rgba(255, 255, 255, 0.35);
-  color: black;
-}  */
-
-/* Style the button that is used to open and close the collapsible content */
-/* .collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-} */
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-/* .active, .collapsible:hover {
-  background-color: #ccc;
-} */
-
 /* Style the collapsible content. Note: hidden by default */
-/* .content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
+/*
 
 main {
   background: white;
