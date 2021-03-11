@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceService: ServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  updateHeaderDash() {
+    this.serviceService.updateHeader("VOCEFEMME", "");
+  }
+
+  updateHeaderAbout() {
+    this.serviceService.updateHeader("About", "Some text about who we are and what we do.")
   }
 
 }

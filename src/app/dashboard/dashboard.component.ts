@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDrawer, matDrawerAnimations } from '@angular/material/sidenav';
 import { ServiceService } from '../service.service';
 
 
@@ -10,6 +11,8 @@ import { ServiceService } from '../service.service';
 export class DashboardComponent implements OnInit {
 
   searchItems: any = [];
+  showFiller = false;
+  
   constructor(private serviceService: ServiceService) { }
 
   ngOnInit(): void {
@@ -22,6 +25,24 @@ export class DashboardComponent implements OnInit {
       console.log(data);
     })
   }
+
+  showHistory() {
+    let content = document.querySelector('.history') as HTMLElement;
+    if (content.style.display == 'none') {
+      content.style.display = 'inline-block';
+    } else {
+      content.style.display = 'none';
+    }
+  }
+
+  // openMenu() {
+  //   let nav = document.querySelector(".toggleNavButton") as HTMLElement;
+  //   nav.click();
+  // }
+
+  // get menu() {
+  //   return this.serviceService.menuBool();
+  // }
 
   searchUser() {
     let search = document.querySelector('.searchInput') as HTMLInputElement;

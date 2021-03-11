@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServiceService {
 
+  headerText = 'VOCEFEMME';
+  underText = '';
   constructor(private httpClient: HttpClient) { }
 
   ApiUrl = 'http://localhost:3000/twitter';
@@ -19,5 +21,16 @@ export class ServiceService {
     return this.httpClient.get(`http://localhost:80/twitter/`, { responseType: "json" });
   }
 
+  updateHeader(text: string, underText: string) {
+    this.headerText = text;
+    this.underText = underText;
+  }
+
+  getHeaderText() {
+    return this.headerText;
+  }
+  getUnderText() {
+    return this.underText;
+  }
 
 }
