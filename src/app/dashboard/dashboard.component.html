@@ -27,16 +27,18 @@
         <legend>Twitter Handle</legend>
         <label>
           Enter Twitter Handle of an Influential Woman:
-          <input type="text" placeholder="@twitter handle"
+          <input type="text" placeholder="@twitter handle" class="searchInput"
         /></label>
-        <button type="button" value="Submit">Submit</button>
+        <button type="button" value="Submit" (click)="searchUser()">Submit</button>
         <button type="button" value="Clear">Clear</button>
       </fieldset>
 
-      <fieldset class="results">
+      <fieldset class="results" *ngIf= "searchItems.length > 0">
         <div>
-          Display- Handle, Tags, Recent Tweets or Message"No matching handles,
-          want to add some?"-Send to Add Twitter Handle Page
+          Name:
+          <span class="name"></span><br>
+          Username: 
+          <span class="username"></span>
         </div>
         <button type="button" value="Return to Dashboard">
           Return to Dashboard

@@ -17,8 +17,7 @@ export class ServiceService {
   }
 
   getUser(name: string) {
-    console.log(name);
-    return this.httpClient.get(`http://localhost:80/twitter/`, { responseType: "json" });
+    return this.httpClient.get(`http://localhost:3000/twitter/userbase/${name}`, { responseType: "json" });
   }
 
   updateHeader(text: string, underText: string) {
