@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDrawer, matDrawerAnimations } from '@angular/material/sidenav';
+import { Data } from '@angular/router';
+import { ManageDataService } from '../manage-data.service';
 import { ServiceService } from '../service.service';
 
 
@@ -15,7 +17,8 @@ export class DashboardComponent implements OnInit {
   showFiller = false;
   tweets: any = [];
   
-  constructor(private serviceService: ServiceService) { }
+  constructor(private serviceService: ServiceService, private manageDataService: ManageDataService) { }
+
 
   ngOnInit(): void {
   
@@ -63,6 +66,18 @@ export class DashboardComponent implements OnInit {
       this.tweets = data;
     })
   }
+
+
+  getHandle() {
+    this.manageDataService.getHandle('@DollyParton').subscribe((response: Object) => {
+      console.log(response);
+    })
+  }
+
+  addHandle() {
+    this.manageDataService.addHandle('@iamacademymi').subscribe((response: any) => {
+      console.log(response);
+    });
 
   clearSearch() {
     let search = document.querySelector('.searchInput') as HTMLInputElement;
