@@ -17,14 +17,17 @@ export class ServiceService {
   }
 
   getUser(name: string) {
-    return this.httpClient.get(`http://localhost:3000/twitter/userbase/${name}`, { responseType: "json" });
+    return this.httpClient.get(`${this.ApiUrl}/userbase/${name}`, { responseType: "json" });
+  }
+
+  getTweetsByUser(username: string) {
+    return this.httpClient.get(`${this.ApiUrl}/${username}`, { responseType: "json" });
   }
 
   updateHeader(text: string, underText: string) {
     this.headerText = text;
     this.underText = underText;
   }
-
   getHeaderText() {
     return this.headerText;
   }

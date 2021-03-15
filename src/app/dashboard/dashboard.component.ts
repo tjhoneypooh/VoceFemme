@@ -13,11 +13,12 @@ export class DashboardComponent implements OnInit {
   showContentArea = false;
   searchItems: any = [];
   showFiller = false;
+  tweets: any = [];
   
   constructor(private serviceService: ServiceService) { }
 
   ngOnInit(): void {
-    // this.initialSearch();
+  
   }
 
   initialSearch() {
@@ -47,18 +48,27 @@ export class DashboardComponent implements OnInit {
 
   searchUser() {
     let search = document.querySelector('.searchInput') as HTMLInputElement;
-    let user = document.querySelector('.name') as HTMLInputElement;
-    let name = document.querySelector('.username') as HTMLInputElement;
     let searchValue = search.value;
     this.serviceService.getUser(searchValue).subscribe((data: any) => {
       this.showContentArea = true;
       this.searchItems = data.data;
-      console.log(this.searchItems[0].name);
-      console.log(this.searchItems);
-      name.innerText = this.searchItems.data[0].name;
-      user.innerText = this.searchItems.data[0].username;
     })
+  }
 
+  getTweetsByUser() {
+    let search = document.querySelector('.searchInput') as HTMLInputElement;
+    let searchValue = search.value;
+    this.serviceService.getTweetsByUser(searchValue).subscribe((data: any) => {  
+      console.log(data);
+      this.tweets = data;
+    })
+  }
+
+  clearSearch() {
+    let search = document.querySelector('.searchInput') as HTMLInputElement;
+    let searchValue = search.value;
+
+    searchValue = '';
   }
 
 }
