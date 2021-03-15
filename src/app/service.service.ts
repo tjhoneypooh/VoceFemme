@@ -8,17 +8,18 @@ export class ServiceService {
 
   headerText = 'VOCEFEMME';
   underText = '';
-  constructor(private httpClient: HttpClient) { }
+
+  constructor(private http: HttpClient) { }
 
   ApiUrl = 'http://localhost:3000/twitter';
-
+      
   public ApiCall() {
-     return this.httpClient.get(this.ApiUrl, { responseType: "json" });
+     return this.http.get(this.ApiUrl, { responseType: "json" });
   }
 
   getUser(name: string) {
     console.log(name);
-    return this.httpClient.get(`http://localhost:80/twitter/`, { responseType: "json" });
+    return this.http.get(`http://localhost:3000/twitter/`, { responseType: "json" });
   }
 
   updateHeader(text: string, underText: string) {

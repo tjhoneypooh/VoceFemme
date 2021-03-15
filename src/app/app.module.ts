@@ -14,6 +14,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { SearchPageComponent } from './search-page/search-page.component';
 
 
 
@@ -23,7 +24,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     DashboardComponent,
     HeaderComponent,
     AboutComponent,
-    NavigationComponent
+    NavigationComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,8 @@
+.modal-box {
+    min-height: 280px;
+    width: 100%;
+    max-width: 580px;
+    background: purple;
+    border-radius: 5px;
+    padding: 20px;
+}
