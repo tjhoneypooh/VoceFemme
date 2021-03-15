@@ -12,13 +12,16 @@ import { ServiceService } from '../service.service';
 })
 export class DashboardComponent implements OnInit {
 
+  showContentArea = false;
   searchItems: any = [];
   showFiller = false;
+  tweets: any = [];
   
   constructor(private serviceService: ServiceService, private manageDataService: ManageDataService) { }
 
-    ngOnInit(): void {
-    this.initialSearch();
+
+  ngOnInit(): void {
+  
   }
 
   initialSearch() {
@@ -49,11 +52,21 @@ export class DashboardComponent implements OnInit {
   searchUser() {
     let search = document.querySelector('.searchInput') as HTMLInputElement;
     let searchValue = search.value;
-    this.serviceService.getUser(searchValue).subscribe((data) => {
-      this.searchItems = data;
-      console.log(data);
+    this.serviceService.getUser(searchValue).subscribe((data: any) => {
+      this.showContentArea = true;
+      this.searchItems = data.data;
     })
   }
+
+  getTweetsByUser() {
+    let search = document.querySelector('.searchInput') as HTMLInputElement;
+    let searchValue = search.value;
+    this.serviceService.getTweetsByUser(searchValue).subscribe((data: any) => {  
+      console.log(data);
+      this.tweets = data;
+    })
+  }
+
 
   getHandle() {
     this.manageDataService.getHandle('@DollyParton').subscribe((response: Object) => {
@@ -65,6 +78,12 @@ export class DashboardComponent implements OnInit {
     this.manageDataService.addHandle('@iamacademymi').subscribe((response: any) => {
       console.log(response);
     });
+
+  clearSearch() {
+    let search = document.querySelector('.searchInput') as HTMLInputElement;
+    let searchValue = search.value;
+
+    searchValue = '';
   }
 
 }
