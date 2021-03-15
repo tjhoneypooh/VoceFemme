@@ -8,12 +8,14 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 
@@ -34,7 +36,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     MatInputModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTabsModule,
+    BrowserAnimationsModule
   ],
   providers: [MatInputModule],
   bootstrap: [AppComponent],

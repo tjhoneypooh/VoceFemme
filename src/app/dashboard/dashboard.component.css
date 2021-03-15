@@ -1,5 +1,9 @@
 .wrapper {
-  padding: 10px;
+  height: 85vh;
+}
+
+h1 {
+  text-align: center;
 }
 
 fieldset {
@@ -43,7 +47,7 @@ mat-drawer-content {
   padding: 18px;
   width: 100%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 15px;
 }
@@ -54,11 +58,70 @@ mat-drawer-content {
 
 .history {
   display: none;
+  text-align: center;
+  margin: 5px 10px;
 }
+
+.searchClearButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.submit {
+  margin-right: 5px;
+}
+
+.submit, .clear {
+  width: auto;
+  padding: 4px 10px;
+}
+
+.tweetsHeader {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.profileImage {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: solid gray 2px;
+}
+.names {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+.name {
+  font-weight: bold;
+  font-size: 16px;
+}
+.userHandle {
+  color: gray;
+  font-size: 16px;
+}
+
+.individualTweet {
+  border-bottom: solid 2px gray;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.tweetDate {
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
 
 @media only screen and (min-width: 768px) {
   .toggleNavButton {
     display: none;
+  }
+  .wrapper {
+    width: 85vw;
   }
 }
 
@@ -66,163 +129,3 @@ mat-drawer-content {
   
 }
 
-/* 
-
-body {
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e570e7+0,bf7ca3+68,a849a3+100 */
-  /* background: #e570e7; 
-  background: -moz-linear-gradient(
-    45deg,
-    #e570e7 0%,
-    #bf7ca3 68%,
-    #a849a3 100%
-   );
-  background: -webkit-linear-gradient(
-    45deg,
-    #e570e7 0%,
-    #bf7ca3 68%,
-    #a849a3 100%
-  );
-  background: linear-gradient(
-    45deg,
-    #e570e7 0%,
-    #bf7ca3 68%,
-    #a849a3 100%
-  ); 
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e570e7', endColorstr='#a849a3',GradientType=1 ); 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-} */
-
-/* Style the collapsible content. Note: hidden by default */
-/*
-
-main {
-  background: white;
-  padding: 1em 1.4em;
-}
-
-h1 {
-  font-size: 1em;
-  margin: 0;
-  padding-top: 2.5em;
-
-}
-
-.trivia {
-  font-size: 1em;
-  margin: 0;
-  padding-top: 4.5em;
-  padding-bottom: 1em;
-}
-
-p {
-  font-size: 1em;
-  line-height: 1em;
-  padding-top: 2.5;
-}
-
-legend {
-  font-weight: bold;
-}
-
-button {
-  padding: 1px 3px;
-  
-} */
-
-/* search {
-  display: block;
-  color: white;
-  background-color: purple;
-  text-decoration: none;
-  padding: 8px 50px;
-  font-size: 2em;
-  font-weight: bold;
-  text-align: center;
-  margin: 2 em 0;
-  border-radius: 4px; */
-/* } */
-/* .who {
-  display:none;
-} */
-
-/* @media only screen and (min-width: 768px) {
-  body {
-    display: grid;
-    grid-template-columns: 20% auto;
-    padding: 2em;
-  }
-
-  span {
-    font-size: 40px;
-    position: relative;
-    display: inline-block;
-    font-weight: bolder;
-    animation: mover 6s linear infinite;
-    color: #fff;
-  } */
-  
-  /*
-  }
-
-  img {
-    display: none;
-  } */
-
-  /* aside {
-    background: rgb(235, 183, 235);
-    grid-template-columns: auto;
-    grid-template-rows: 20% auto;
-    padding: 0;
-  } */
-
-  /* main {
-    padding: 4em;
-    background: white url("../images/bg-svg") no-repeat bottom right;
-  } */
-
-  /* figcaption {
-    text-align: center;
-    color: black;
-  }
-  ul {
-    display: block;
-    margin-top: 2em;
-    position: relative !important;
-    background: none !important;
-    width: 100% !important;
-  }
-  nav {
-    background: none;
-  }
-  ul li a:hover {
-    background-color: white;
-  }
-  h1 {
-    font-size: 2em;
-    margin-top: 2em;
-  }
-  
-  h1 {
-    font-size: 1em;
-    margin: 0;
-    padding-top: 3em;
-  }
-  
-  p {
-    font-size: 1em;
-    line-height: 1.5em;
-    padding-top: 3.4em;
-  }
-
-  .twitter {
-    padding: 2em;
-    margin: .5em 0;
-  }
-  
-  .hashtag {
-    padding-left: 3.2em;
-  }
-  
-} */
