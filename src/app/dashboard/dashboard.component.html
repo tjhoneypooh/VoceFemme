@@ -21,12 +21,14 @@
   </div>
   <h1>Search Influential Women on Twitter</h1>
 
-<mat-tab-group animationDuration="0ms">
+<mat-tab-group animationDuration="0ms" mat-align-tabs="center">
   <mat-tab label="By Handle">
-    <label>
-      Enter Twitter Handle of an Influential Woman:
+
+    <div class="searchHandle">
+      <span>Enter Twitter Handle of an Influential Woman:</span>
+
       <input type="text" placeholder="@twitter handle" class="searchInput" (keyup.enter)="getTweetsByUser()"
-    /></label>
+    /></div>
     <div class="searchClearButtons">
     <button type="button" class="submit" (click)="getTweetsByUser()">Submit</button>
     <button type="button" class="clear" (click)="clearSearch()">Clear</button>
@@ -44,79 +46,83 @@
     <div class="tweetDate">{{tweet.created_at}}</div>
     <div class="tweetText">{{tweet.text}}</div>
    </div>
-      <button type="button" value="Return to Dashboard">
-      Return to Dashboard
-    </button>
   </fieldset>
 
 </mat-tab>
   <mat-tab label="By Tags">
     <fieldset>
-      <legend>Industry</legend>
-      <label><input type="checkbox" />Business</label>
-      <label><input type="checkbox" />Science</label>
-      <label><input type="checkbox" />Technology</label>
+       <legend>Industry</legend>
+      <mat-chip-list
+  class="example-chip"
+  >
+  <mat-chip
+    class="example-box"
+    (click) = "addTag(tag)"
+    *ngFor="let tag of industryTags">
+    {{tag}}
+  </mat-chip>
+</mat-chip-list>
     </fieldset>
 
     <fieldset>
-      <legend>Lifestyle</legend>
-      <label><input type="checkbox" />Beauty</label>
-      <label><input type="checkbox" />Food</label>
-      <label><input type="checkbox" />Health</label>
-      <label><input type="checkbox" />Politics</label>
-      <label><input type="checkbox" />Spiritual</label>
+       <legend>Lifestyle</legend>
+      <mat-chip-list
+      class="example-chip"
+     >
+      <mat-chip
+        class="example-box"
+        (click) = "addTag(tag)"
+        *ngFor="let tag of lifestyleTags">
+        {{tag}}
+      </mat-chip>
+    </mat-chip-list>
     </fieldset>
 
     <fieldset>
-      <legend>Art</legend>
-      <label><input type="checkbox" /> Humor</label>
+       <legend>Art</legend>
+      <mat-chip-list
+      class="example-chip"
+      >
+      <mat-chip
+        class="example-box"
+        (click) = "addTag(tag)"
+        *ngFor="let tag of artTags">
+        {{tag}}
+      </mat-chip>
+    </mat-chip-list>
     </fieldset>
 
-    <button type="button" value="Submit">Submit</button>
-    <button type="button" value="Clear">Clear</button>
+    <button type="button" class="tagSubmit" class="submit">Submit</button>
+    <button type="button" (click)="clearTags()" class="tagClear" class="clear">Clear</button>
 
-    <fieldset class="results">
-      <div>
-        Display - Handles(handle will take you to twitter for recent tweets
-        and to follow)Or Message"No matching handles, want to add some?"-Send
-        to Add Twitter Handle Page
-      </div>
-      <button type="button" value="Return to Dashboard">
-        Return to Dashboard
-      </button>
+    <fieldset class="results" *ngIf= "tweets.length > 0">
+      Displaying Results
     </fieldset>
   </mat-tab>
   <mat-tab label="Add A Woman">
     <fieldset>
-      <legend>Add Twitter Handle of an Influential Woman:</legend>
-      <label
-        >Enter a new Twitter Handle:
-        <input type="text" placeholder="@Twitter Handle"
-      /></label>
-
+      <legend>Add An Influential Woman To The Database:</legend>
+        <div class="newUserTitle">Enter a Twitter handle:</div>
+        <input type="text" placeholder="@Twitter Handle" class="newHandleInput"
+      />
+      <div>Select relevant tag(s):</div>
       <div>
-        <label>Select Tag(s) that relate to the added Twitter Handle:</label>
-      </div>
-
-      <div>
-        <label><input type="checkbox" />Technology</label>
-        <label><input type="checkbox" />Business</label>
-        <label><input type="checkbox" />Science</label>
-        <label><input type="checkbox" />Politics</label>
-        <label><input type="checkbox" />Spiritual</label>
-        <label><input type="checkbox" />Beauty</label>
-        <label><input type="checkbox" />Health</label>
-        <label><input type="checkbox" />Food</label>
-        <label><input type="checkbox" /> Humor</label>
+        <mat-chip-list
+        class="newUser"
+        >
+        <mat-chip
+          class="example-box"
+          (click) = "submitTag(tag)"
+          *ngFor="let tag of allTags">
+          {{tag}}
+        </mat-chip>
+      </mat-chip-list>
       </div>
       <button type="button" value="Submit">Submit</button>
       <button type="button" value="Clear">Clear</button>
     </fieldset>
     <fieldset>
-      <div class="results">Disply -Handles, Tags, Recent Tweets</div>
-      <button type="button" value="Return to Dashboard">
-        Return to Dashboard
-      </button>
+      <div class="results"></div>
     </fieldset>
   </mat-tab>
 </mat-tab-group>

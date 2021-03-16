@@ -63,6 +63,24 @@ mat-drawer-content {
   margin: 5px 10px;
 }
 
+.searchHandle {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding-top: 20px;
+}
+
+.searchInput, .newHandleInput {
+  height: 35px;
+  width: 80%;
+  padding-left: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: solid 2px purple;
+  outline: none;
+}
+
 .searchClearButtons {
   display: flex;
   justify-content: center;
@@ -121,6 +139,21 @@ mat-drawer-content {
   font-style: italic;
 }
 
+mat-chip:hover {
+  cursor: pointer;
+}
+mat-chip-list.newUser {
+  margin: 10px;
+}
+
+.newUserTitle {
+  margin-top: 10px;
+}
+
+.newHandleInput {
+  margin: 10px 10px 20px 0;
+}
+
 
 @media only screen and (min-width: 768px) {
   .toggleNavButton {
@@ -128,6 +161,10 @@ mat-drawer-content {
   }
   .wrapper {
     width: 85vw;
+  }
+
+  .searchInput {
+    width: 50%;
   }
 }
 
