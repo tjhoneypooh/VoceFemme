@@ -8,6 +8,7 @@ export class ServiceService {
 
   headerText = 'VOCEFEMME';
   underText = '';
+  httpClient: any;
 
   constructor(private http: HttpClient) { }
 
