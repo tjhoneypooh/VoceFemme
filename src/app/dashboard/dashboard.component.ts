@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit {
     this.manageDataService.addHandle('@iamacademymi').subscribe((response: any) => {
       console.log(response);
     });
-
+  }
   clearSearch() {
     let search = document.querySelector('.searchInput') as HTMLInputElement;
     let searchValue = search.value;
@@ -87,4 +87,3 @@ export class DashboardComponent implements OnInit {
   }
 
 }
-
