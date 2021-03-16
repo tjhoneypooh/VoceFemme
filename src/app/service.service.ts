@@ -21,11 +21,11 @@ export class ServiceService {
 
     console.log(name);
     return this.http.get(`http://localhost:3000/twitter/`, { responseType: "json" });
-    return this.httpClient.get(`${this.ApiUrl}/userbase/${name}`, { responseType: "json" });
+    return this.http.get(`${this.ApiUrl}/userbase/${name}`, { responseType: "json" });
   }
 
   getTweetsByUser(username: string) {
-    return this.httpClient.get(`${this.ApiUrl}/${username}`, { responseType: "json" });
+    return this.http.get(`${this.ApiUrl}/${username}`, { responseType: "json" });
   }
 
   updateHeader(text: string, underText: string) {

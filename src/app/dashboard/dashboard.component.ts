@@ -3,7 +3,7 @@ import { MatDrawer, matDrawerAnimations } from '@angular/material/sidenav';
 import { Data } from '@angular/router';
 import { ManageDataService } from '../manage-data.service';
 import { ServiceService } from '../service.service';
-
+import { twitterUser } from '../twitterUser';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,12 +16,34 @@ export class DashboardComponent implements OnInit {
   searchItems: any = [];
   showFiller = false;
   tweets: any = [];
+  industryTags: any = ["Business", "Science", "Technology"];
+  lifestyleTags: any = ["Beauty", "Health", "Politics", "Food", "Spiritual"];
+  artTags: any = ["Humor", "Music"];
+  allTags: any = ["Business", "Science", "Technology","Beauty", "Health", "Politics", "Food", "Spiritual", "Humor", "Music"];
+  selectedTags: any = [];
+  // addedUSer: twitterUser = {}
+
   
   constructor(private serviceService: ServiceService, private manageDataService: ManageDataService) { }
 
-
   ngOnInit(): void {
   
+  }
+
+  addTag(tag: string) {
+    this.selectedTags.push(tag);
+    console.log(this.selectedTags);
+  }
+  clearTags() {
+    this.selectedTags = [];
+  }
+
+  submitTag(tag: string) {
+    this.selectedTags.push(tag);
+    console.log(this.selectedTags);
+  }
+  clearSubmitUser() {
+
   }
 
   initialSearch() {
@@ -78,6 +100,7 @@ export class DashboardComponent implements OnInit {
     this.manageDataService.addHandle('@iamacademymi').subscribe((response: any) => {
       console.log(response);
     });
+  }
 
   clearSearch() {
     let search = document.querySelector('.searchInput') as HTMLInputElement;

@@ -16,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { SearchPageComponent } from './search-page/search-page.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -39,9 +40,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatTabsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatChipsModule
   ],
-  providers: [MatInputModule],
+  providers: [MatInputModule, MatChipsModule],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
