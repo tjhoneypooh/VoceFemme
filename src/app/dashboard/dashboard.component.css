@@ -63,6 +63,10 @@ mat-drawer-content {
   margin: 5px 10px;
 }
 
+mat-tab-group {
+  width: 100vw;
+}
+
 .searchHandle {
  display: flex;
  flex-direction: column;
@@ -165,6 +169,10 @@ mat-chip-list.newUser {
 
   .searchInput {
     width: 50%;
+  }
+
+  mat-tab-group {
+    width: 85vw;
   }
 }
 
