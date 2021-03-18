@@ -1,5 +1,5 @@
   .wrapper {
-   background-color: rgb(235, 183, 235);
+   background-color: rgba(163, 46, 155, 64);
    height: 100%;
    display: flex;
    flex-direction: column;
@@ -33,7 +33,7 @@
       height: 33%;
       width: 100%;
       text-decoration: none;
-      background-color: #F2CFF2;
+      background-color: rgba(163, 46, 155, 64);
       padding: 20px;
       outline: none;
       

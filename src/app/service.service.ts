@@ -8,18 +8,31 @@ export class ServiceService {
 
   headerText = 'VOCEFEMME';
   underText = '';
-  
+  httpClient: any;
+
   constructor(private http: HttpClient) { }
 
   ApiUrl = 'http://localhost:8080/twitter';
-  databaseUrl = 'http://localhost:8080/db';
+  databaseUrl= 'http://localhost:8080/db';
       
   public ApiCall() {
      return this.http.get(this.ApiUrl, { responseType: "json" });
   }
 
-  getTagGroups() {
-    return this.http.get(`${this.databaseUrl}/tag-groups`,  { responseType: "json" });
+  getDatabaseTags() {
+    return this.http.get(`${this.databaseUrl}/tag-groups`, { responseType: "json" });
+  }
+
+  getHandlesByTags(tag: string) {
+    return this.http.get(`${this.databaseUrl}/tags/${tag}`, { responseType: "json" });
+  }
+
+  postNewHandle(handle: string) {
+    return this.http.post(`${this.databaseUrl}/add-handle/${handle}`, { responseType: "json" });
+  }
+
+  getDatabaseAllWomen() {
+    return this.http.get(`${this.databaseUrl}/handles`, { responseType: "json" });
   }
 
   getUser(name: string) {

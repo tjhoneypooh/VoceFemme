@@ -1,13 +1,15 @@
 .wrapper {
   height: 85vh;
+
 }
 
 h1 {
   text-align: center;
 }
 
+
 fieldset {
-  border: 2px solid purple;
+  border: 2px solid #661B9E;
   border-radius:8px;
   margin: 10px;
 }
@@ -16,6 +18,10 @@ mat-drawer-container {
   height: 100%;
   width: 100%;
   margin: 0;
+  background-image: url(src/assets/images/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .toggleNavButton {
@@ -42,7 +48,7 @@ mat-drawer-content {
 }
 
 .collapsible {
-  background-color: #eee;
+  background-color: rgba(255, 255, 255, 0.5);
   color: #444;
   padding: 18px;
   width: 100%;
@@ -53,13 +59,48 @@ mat-drawer-content {
 }
 .collapsible:hover {
   cursor: pointer;
-  background-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .history {
   display: none;
   text-align: center;
   margin: 5px 10px;
+}
+
+mat-tab-group {
+  width: 100vw;
+}
+
+.randomWomenGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  row-gap: 10px;
+}
+.randomWoman {
+  padding-left: 20px;
+}
+.randomButtonDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.searchHandle {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding-top: 20px;
+}
+
+.searchInput, .newHandleInput {
+  height: 35px;
+  width: 80%;
+  padding-left: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: solid 2px purple;
+  outline: none;
 }
 
 .searchClearButtons {
@@ -72,9 +113,26 @@ mat-drawer-content {
   margin-right: 5px;
 }
 
-.submit, .clear {
+.submit{
   width: auto;
   padding: 4px 10px;
+  background-color: #f05be6;
+  color: white;
+  border: none;
+  border-radius: 8%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.clear {
+  width: auto;
+  padding: 4px 10px;
+  background-color:transparent;
+  color: #f05be6;
+  border: 2px solid #f05be6;
+  border-radius: 8%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
 }
 
 .tweetsHeader {
@@ -115,12 +173,46 @@ mat-drawer-content {
   font-style: italic;
 }
 
+.byTagTitle {
+  margin: 10px 0;
+}
+
+.tagTitle {
+  margin: 10px 0;
+}
+.searchTagsList {
+  margin-bottom: 10px;
+}
+
+mat-chip:hover {
+  cursor: pointer;
+}
+mat-chip-list.newUser {
+  margin: 10px;
+}
+
+.newUserTitle {
+  margin-top: 10px;
+}
+
+.newHandleInput {
+  margin: 10px 10px 20px 0;
+}
+
 
 @media only screen and (min-width: 768px) {
   .toggleNavButton {
     display: none;
   }
   .wrapper {
+    width: 85vw;
+  }
+
+  .searchInput {
+    width: 50%;
+  }
+
+  mat-tab-group {
     width: 85vw;
   }
 }
