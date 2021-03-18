@@ -17,6 +17,10 @@
     height: 85%;
     width: auto;
     overflow-y: auto;
+    background-image: url(src/assets/images/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media only screen and (min-width: 768px) {
@@ -25,8 +29,13 @@
         height: 100%;
         width: 15%;
     }
+    .header {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 1440px) {
-
+    .header {
+        display: none;
+    }
 }
