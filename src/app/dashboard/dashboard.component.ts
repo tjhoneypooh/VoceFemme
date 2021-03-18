@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-  
+    this.getTagGroups();
   }
 
   initialSearch() {
@@ -40,15 +40,6 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  // openMenu() {
-  //   let nav = document.querySelector(".toggleNavButton") as HTMLElement;
-  //   nav.click();
-  // }
-
-  // get menu() {
-  //   return this.serviceService.menuBool();
-  // }
-
   searchUser() {
     let search = document.querySelector('.searchInput') as HTMLInputElement;
     let searchValue = search.value;
@@ -62,7 +53,6 @@ export class DashboardComponent implements OnInit {
     let search = document.querySelector('.searchInput') as HTMLInputElement;
     let searchValue = search.value;
     this.serviceService.getTweetsByUser(searchValue).subscribe((data: any) => {  
-      console.log(data);
       this.tweets = data;
     })
   }
@@ -78,12 +68,19 @@ export class DashboardComponent implements OnInit {
     this.manageDataService.addHandle('@iamacademymi').subscribe((response: any) => {
       console.log(response);
     });
-
+  }
+  
   clearSearch() {
     let search = document.querySelector('.searchInput') as HTMLInputElement;
     let searchValue = search.value;
 
     searchValue = '';
+  }
+
+  getTagGroups() {
+    this.serviceService.getTagGroups().subscribe((data: any) => {
+      console.log(data);
+    })
   }
 
 }
