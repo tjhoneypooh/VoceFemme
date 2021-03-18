@@ -1,5 +1,6 @@
 .wrapper {
   height: 85vh;
+
 }
 
 h1 {
@@ -17,6 +18,10 @@ mat-drawer-container {
   height: 100%;
   width: 100%;
   margin: 0;
+  background-image: url(src/assets/images/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .toggleNavButton {
@@ -43,7 +48,7 @@ mat-drawer-content {
 }
 
 .collapsible {
-  background-color: #eee;
+  background-color: rgba(255, 255, 255, 0.5);
   color: #444;
   padding: 18px;
   width: 100%;
@@ -54,7 +59,7 @@ mat-drawer-content {
 }
 .collapsible:hover {
   cursor: pointer;
-  background-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .history {
@@ -73,13 +78,26 @@ mat-drawer-content {
   margin-right: 5px;
 }
 
-.submit, .clear {
+.submit{
   width: auto;
   padding: 4px 10px;
-  background-color: white;
-  color: #AB57EB;
-  border-radius: 10%;
-  border: 2px solid #AB57EB;
+  background-color: #f05be6;
+  color: white;
+  border: none;
+  border-radius: 8%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.clear {
+  width: auto;
+  padding: 4px 10px;
+  background-color:transparent;
+  color: #f05be6;
+  border: 2px solid #f05be6;
+  border-radius: 8%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
 }
 
 
