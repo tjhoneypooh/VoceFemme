@@ -105,6 +105,11 @@ p {
   font-size: .8em;
 }
 
+.column {
+  width: 50%;
+  display: block;
+}
+
 
 /* .button {
   border: none;
