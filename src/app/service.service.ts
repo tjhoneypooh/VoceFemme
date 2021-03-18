@@ -12,16 +12,30 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  ApiUrl = 'http://localhost:3000/twitter';
+  ApiUrl = 'http://localhost:8080/twitter';
+  databaseUrl= 'http://localhost:8080/db';
       
   public ApiCall() {
      return this.http.get(this.ApiUrl, { responseType: "json" });
   }
 
-  getUser(name: string) {
+  getDatabaseTags() {
+    return this.http.get(`${this.databaseUrl}/tag-groups`, { responseType: "json" });
+  }
 
-    console.log(name);
-    return this.http.get(`http://localhost:3000/twitter/`, { responseType: "json" });
+  getHandlesByTags(tag: string) {
+    return this.http.get(`${this.databaseUrl}/tags/${tag}`, { responseType: "json" });
+  }
+
+  postNewHandle(handle: string) {
+    return this.http.post(`${this.databaseUrl}/add-handle/${handle}`, { responseType: "json" });
+  }
+
+  getDatabaseAllWomen() {
+    return this.http.get(`${this.databaseUrl}/handles`, { responseType: "json" });
+  }
+
+  getUser(name: string) {
     return this.http.get(`${this.ApiUrl}/userbase/${name}`, { responseType: "json" });
   }
 
