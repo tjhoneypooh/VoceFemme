@@ -22,18 +22,33 @@
   <h1>Search Influential Women on Twitter</h1>
 
 <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
-  <mat-tab label="By Handle">
 
+  <mat-tab label="Random 10 Women">
+    <fieldset> 
+      <legend>Below are 10 random women selected from the database:</legend>
+      <div class="randomWomenGrid">
+      <div class="randomWoman" *ngFor="let woman of randomWomen; let i = index">
+        <div class="tweetsHeader">
+        <img class="profileImage" src="{{woman[0].user.profile_image_url}}">
+        <div class="names">
+        <div class="name">{{woman[0].user.name}}</div>
+        <div class="userHandle">@{{woman[0].user.screen_name}}</div>
+      </div>
+    </div>
+      </div>
+    </div>
+      <div class="randomButtonDiv"><button type="button" class="randomButton" class="submit" (click)="getRandomWomen()">Show Me 10 New Women</button></div>
+    </fieldset>
+  </mat-tab>
+
+  <mat-tab label="By Handle">
     <div class="searchHandle">
       <span>Enter Twitter Handle of an Influential Woman:</span>
-
       <input type="text" placeholder="@twitter handle" class="searchInput" (keyup.enter)="getTweetsByUser()"
     /></div>
     <div class="searchClearButtons">
     <button type="button" class="submit" (click)="getTweetsByUser()">Submit</button>
-    <button type="button" class="clear" (click)="clearSearch()">Clear</button>
   </div>
-
   <fieldset class="results" *ngIf= "tweets.length > 0">
     <div class="tweetsHeader">
       <img class="profileImage" src="{{tweets[0].user.profile_image_url}}">
@@ -51,9 +66,11 @@
 </mat-tab>
   <mat-tab label="By Tags">
     <fieldset>
-       <legend>Industry</legend>
+      <legend>Search By Relevant Tags</legend>
+    <div class="byTagTitle">Select up to 3 tags below:</div>
+    <div class="tagTitle">Industry</div>
       <mat-chip-list
-  class="example-chip"
+  class="searchTagsList"
   >
   <mat-chip
     class="example-box"
@@ -62,12 +79,10 @@
     {{tag}}
   </mat-chip>
 </mat-chip-list>
-    </fieldset>
-
-    <fieldset>
-       <legend>Lifestyle</legend>
+   
+       <div class="tagTitle">Lifestyle</div>
       <mat-chip-list
-      class="example-chip"
+      class="searchTagsList"
      >
       <mat-chip
         class="example-box"
@@ -76,12 +91,10 @@
         {{tag}}
       </mat-chip>
     </mat-chip-list>
-    </fieldset>
-
-    <fieldset>
-       <legend>Art</legend>
+ 
+    <div class="tagTitle">Art</div>
       <mat-chip-list
-      class="example-chip"
+      class="searchTagsList"
       >
       <mat-chip
         class="example-box"
@@ -90,46 +103,52 @@
         {{tag}}
       </mat-chip>
     </mat-chip-list>
-    </fieldset>
-
-    <button type="button" class="tagSubmit" class="submit">Submit</button>
+    
+    <div class="searchClearButtons">
+    <button type="button" class="tagSubmit"  (click)="getHandlesByTags()" class="submit">Submit</button>
     <button type="button" (click)="clearTags()" class="tagClear" class="clear">Clear</button>
+  </div>
+</fieldset>
+  <fieldset class="results" *ngIf= "combinedSearchResults.length > 0">
+    <legend>Results</legend>
+    <div class="randomWomenGrid">
+      <div class="randomWoman" *ngFor="let woman of combinedSearchResults; let i = index">
+        <div class="tweetsHeader">
+        <img class="profileImage" src="{{woman[i].user.profile_image_url}}">
+        <div class="names">
+        <div class="name">{{woman[i].user.name}}</div>
+        <div class="userHandle">@{{woman[i].user.screen_name}}</div>
+      </div>
+    </div>
+      </div>
+    </div>
+    </fieldset>
+  </mat-tab>
 
-    <fieldset class="results" *ngIf= "tweets.length > 0">
-      Displaying Results
-    </fieldset>
-  </mat-tab>
-  <mat-tab label="Random 10 Women">
-    <fieldset>
-      <legend>Below are 10 random women selected from the database:</legend>
-   
-      <button type="button">10 More</button>
-    </fieldset>
-  </mat-tab>
   <mat-tab label="Add A Woman">
     <fieldset>
       <legend>Add An Influential Woman To The Database:</legend>
         <div class="newUserTitle">Enter a Twitter handle:</div>
         <input type="text" placeholder="@Twitter Handle" class="newHandleInput"
       />
-      <div>Select relevant tag(s):</div>
+      <div>Select relevant tag(s) (up to 3):</div>
       <div>
         <mat-chip-list
         class="newUser"
         >
         <mat-chip
           class="example-box"
-          (click) = "submitTag(tag)"
+          class="newUserTag"
+          (click)="selectNewUserTag(tag)"
           *ngFor="let tag of allTags">
           {{tag}}
         </mat-chip>
       </mat-chip-list>
       </div>
-      <button type="button" value="Submit">Submit</button>
-      <button type="button" value="Clear">Clear</button>
-    </fieldset>
-    <fieldset>
-      <div class="results"></div>
+      <div class="searchClearButtons">
+        <button type="button" (click)="addHandle()" class="tagSubmit" class="submit">Submit</button>
+        <button type="button" class="tagClear" class="clear">Clear</button>
+      </div>
     </fieldset>
   </mat-tab>
 </mat-tab-group>

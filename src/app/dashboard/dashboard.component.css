@@ -67,6 +67,19 @@ mat-tab-group {
   width: 100vw;
 }
 
+.randomWomenGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  row-gap: 10px;
+}
+.randomWoman {
+  padding-left: 20px;
+}
+.randomButtonDiv {
+  display: flex;
+  justify-content: center;
+}
+
 .searchHandle {
  display: flex;
  flex-direction: column;
@@ -104,7 +117,6 @@ mat-tab-group {
   border: 2px solid #AB57EB;
 }
 
-
 .tweetsHeader {
   display: flex;
   align-items: center;
@@ -141,6 +153,17 @@ mat-tab-group {
 .tweetDate {
   margin-bottom: 5px;
   font-style: italic;
+}
+
+.byTagTitle {
+  margin: 10px 0;
+}
+
+.tagTitle {
+  margin: 10px 0;
+}
+.searchTagsList {
+  margin-bottom: 10px;
 }
 
 mat-chip:hover {
