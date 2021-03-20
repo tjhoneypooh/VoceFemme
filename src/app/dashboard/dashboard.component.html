@@ -1,10 +1,10 @@
 <div class="wrapper">
-<mat-drawer-container class="example-container">
+<!-- <mat-drawer-container class="example-container">
   <mat-drawer #drawer class="example-sidenav" mode="over">
     <div routerLink="/dashboard">Dashboard</div>
     <div routerLink="/about">About</div>
-  </mat-drawer>
-    <button class="toggleNavButton" type="button" mat-button (click)="drawer.toggle()">Open Nav</button>
+  </mat-drawer> -->
+    <!-- <button class="toggleNavButton" type="button" mat-button (click)="drawer.toggle()">Open Nav</button> -->
   <h1 class="trivia">Women's History Trivia</h1>
 
   <button type="button" class="collapsible" (click)="showHistory()">
@@ -141,7 +141,7 @@
           class="newUserTag"
           (click)="selectNewUserTag(tag)"
           *ngFor="let tag of allTags">
-          {{tag}}
+          {{tag.tag}}
         </mat-chip>
       </mat-chip-list>
       </div>
@@ -152,5 +152,5 @@
     </fieldset>
   </mat-tab>
 </mat-tab-group>
-</mat-drawer-container>
+<!-- </mat-drawer-container> -->
 </div>

@@ -17,6 +17,12 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { SearchPageComponent } from './search-page/search-page.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -27,7 +33,8 @@ import {MatChipsModule} from '@angular/material/chips';
     HeaderComponent,
     AboutComponent,
     NavigationComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,12 @@ import {MatChipsModule} from '@angular/material/chips';
     MatFormFieldModule,
     MatTabsModule,
     BrowserAnimationsModule,
-    MatChipsModule
+    MatChipsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [MatInputModule, MatChipsModule],
   bootstrap: [AppComponent],
