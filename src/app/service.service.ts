@@ -54,4 +54,8 @@ export class ServiceService {
     return this.underText;
   }
 
+  addTagMapping(handle_id: number, tag_id: number) {
+    return this.http.post(`${this.databaseUrl}/add-tagmap`, { handle_id, tag_id });
+  }
+
 }

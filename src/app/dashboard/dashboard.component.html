@@ -1,12 +1,13 @@
 <div class="wrapper">
-  <mat-drawer-container class="example-container">
-    <mat-drawer #drawer class="example-sidenav" mode="over">
-      <div routerLink="/dashboard">Dashboard</div>
-      <div routerLink="/about">About</div>
-    </mat-drawer>
+<!-- <mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="over">
+    <div routerLink="/dashboard">Dashboard</div>
+    <div routerLink="/about">About</div>
+  </mat-drawer> -->
+    <!-- <button class="toggleNavButton" type="button" mat-button (click)="drawer.toggle()">Open Nav</button> -->
     <h1 class="app-name">VoceFemme</h1>
     <h3 class="noun">[voe-che, fehm] noun: feminine voice; to lift one's voice in order to lift others </h3>
-    <!-- <h2>Search Influential Women on Twitter</h2> -->
+  <h1 class="trivia">Women's History Trivia</h1>
 
     <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
 
@@ -98,39 +99,45 @@
         </fieldset>
       </mat-tab>
 
-      <mat-tab label="Add A Woman">
-        <fieldset>
-          <legend>Add An Influential Woman To The Database:</legend>
-          <div class="newUserTitle">Enter a Twitter handle:</div>
-          <input type="text" placeholder="@Twitter Handle" class="newHandleInput" />
-          <div>Select relevant tag(s) (up to 3):</div>
-          <div>
-            <mat-chip-list class="newUser">
-              <mat-chip class="example-box" class="newUserTag" (click)="selectNewUserTag(tag)"
-                *ngFor="let tag of allTags">
-                {{tag}}
-              </mat-chip>
-            </mat-chip-list>
-          </div>
-          <div class="searchClearButtons">
-            <button type="button" (click)="addHandle()" class="tagSubmit" class="submit">Submit</button>
-            <button type="button" class="tagClear" class="clear">Clear</button>
-          </div>
-        </fieldset>
-      </mat-tab>
-    </mat-tab-group>
-    <button class="toggleNavButton" type="button" mat-button (click)="drawer.toggle()">Open Nav</button>
-    <h2 class="trivia">Women's History Trivia</h2>
-    <button type="button" class="collapsible" (click)="showHistory()">
-      What is the origin of Women's History Month?
-    </button>
-    <div class="content">
-      <p class="history">
-        Women's History Month had its origins as a national celebration in 1981
-        when Congress passed Pub. L. 97-28 which authorized and requested the
-        President to proclaim the week beginning March 7, 1982 as “Women's History
-        Week.”
-      </p>
-    </div>
-  </mat-drawer-container>
+  <mat-tab label="Add A Woman">
+    <fieldset>
+      <legend>Add An Influential Woman To The Database:</legend>
+        <div class="newUserTitle">Enter a Twitter handle:</div>
+        <input type="text" placeholder="@Twitter Handle" class="newHandleInput"
+      />
+      <div>Select relevant tag(s) (up to 3):</div>
+      <div>
+        <mat-chip-list
+        class="newUser"
+        >
+        <mat-chip
+          class="example-box"
+          class="newUserTag"
+          (click)="selectNewUserTag(tag)"
+          *ngFor="let tag of allTags">
+          {{tag.tag}}
+        </mat-chip>
+      </mat-chip-list>
+      </div>
+      <div class="searchClearButtons">
+        <button type="button" (click)="addHandle()" class="tagSubmit" class="submit">Submit</button>
+        <button type="button" class="tagClear" class="clear">Clear</button>
+      </div>
+    </fieldset>
+  </mat-tab>
+</mat-tab-group>
+<!-- <button class="toggleNavButton" type="button" mat-button (click)="drawer.toggle()">Open Nav</button> -->
+<h2 class="trivia">Women's History Trivia</h2>
+<button type="button" class="collapsible" (click)="showHistory()">
+  What is the origin of Women's History Month?
+</button>
+<div class="content">
+  <p class="history">
+    Women's History Month had its origins as a national celebration in 1981
+    when Congress passed Pub. L. 97-28 which authorized and requested the
+    President to proclaim the week beginning March 7, 1982 as “Women's History
+    Week.”
+  </p>
+</div>
+<!-- </mat-drawer-container> -->
 </div>

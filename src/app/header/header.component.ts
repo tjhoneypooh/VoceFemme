@@ -18,6 +18,16 @@ export class HeaderComponent implements OnInit {
     console.log("open menu");
   }
 
+  /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+// myFunction() {
+//   var x = document.getElementById("myLinks");
+//   if (x.style.display === "block") {
+//     x.style.display = "none";
+//   } else {
+//     x.style.display = "block";
+//   }
+// }
+
   get headerText() {
     return this.serviceService.getHeaderText();
   }

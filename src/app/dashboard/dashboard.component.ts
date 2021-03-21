@@ -101,10 +101,10 @@ export class DashboardComponent implements OnInit {
 
   getTags() {
     this.serviceService.getDatabaseTags().subscribe((data: any) => {
-
+      console.log(data);
      for (let i = 0; i < data.length; i++) {
        if (data[i].group_name == 'Arts') {
-         this.artTags.push(data[i].tag);
+         this.artTags.push(data[i]);
        } else if (data[i].group_name == 'Lifestyle') {
         this.lifestyleTags.push(data[i].tag);
        } else {
@@ -113,7 +113,7 @@ export class DashboardComponent implements OnInit {
      }
 
      for (let i = 0; i < data.length; i++) {
-       this.allTags.push(data[i].tag);
+       this.allTags.push(data[i]);
      }
     })
   }
@@ -154,6 +154,12 @@ export class DashboardComponent implements OnInit {
     let handle = input.value;
     this.serviceService.postNewHandle(handle).subscribe((response: any) => {
       console.log(response);
+      const handle_id= response[0].id;
+      this.newUserSelectedTags.forEach((tag: any) => {
+        const tag_id = tag.tag_id;
+        console.log(handle_id, tag_id);
+        this.serviceService.addTagMapping(handle_id, tag_id).subscribe(() => {console.log("done")}, (error) => {console.log(error)})
+      })
       //now just need to add tags to each handle. put call?
       //need to clear database out of 'null' things I added in.
     });
