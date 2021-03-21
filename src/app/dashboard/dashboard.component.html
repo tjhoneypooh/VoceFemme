@@ -1,156 +1,136 @@
 <div class="wrapper">
-<mat-drawer-container class="example-container">
-  <mat-drawer #drawer class="example-sidenav" mode="over">
-    <div routerLink="/dashboard">Dashboard</div>
-    <div routerLink="/about">About</div>
-  </mat-drawer>
+  <mat-drawer-container class="example-container">
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+      <div routerLink="/dashboard">Dashboard</div>
+      <div routerLink="/about">About</div>
+    </mat-drawer>
+    <h1 class="app-name">VoceFemme</h1>
+    <h3 class="noun">[voe-che, fehm] noun: feminine voice; to lift one's voice in order to lift others </h3>
+    <!-- <h2>Search Influential Women on Twitter</h2> -->
+
+    <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
+
+      <mat-tab label="Random 10 Women">
+        <fieldset>
+          <legend>Below are 10 random women selected from the database:</legend>
+          <div class="randomWomenGrid">
+            <div class="randomWoman" *ngFor="let woman of randomWomen; let i = index">
+              <div class="tweetsHeader">
+                <img class="profileImage" src="{{woman[0].user.profile_image_url}}">
+                <div class="names">
+                  <div class="name">{{woman[0].user.name}}</div>
+                  <div class="userHandle">@{{woman[0].user.screen_name}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="randomButtonDiv"><button type="button" class="randomButton" class="submit"
+              (click)="getRandomWomen()">Show Me 10 New Women</button></div>
+        </fieldset>
+      </mat-tab>
+
+      <mat-tab label="By Handle">
+        <div class="searchHandle">
+          <span>Enter Twitter Handle of an Influential Woman:</span>
+          <input type="text" placeholder="@twitter handle" class="searchInput" (keyup.enter)="getTweetsByUser()" />
+        </div>
+        <div class="searchClearButtons">
+          <button type="button" class="submit" (click)="getTweetsByUser()">Submit</button>
+        </div>
+        <fieldset class="results" *ngIf="tweets.length > 0">
+          <div class="tweetsHeader">
+            <img class="profileImage" src="{{tweets[0].user.profile_image_url}}">
+            <div class="names">
+              <div class="name">{{tweets[0].user.name}}</div>
+              <div class="userHandle">@{{tweets[0].user.screen_name}}</div>
+            </div>
+          </div>
+          <div class="individualTweet" *ngFor="let tweet of tweets">
+            <div class="tweetDate">{{tweet.created_at}}</div>
+            <div class="tweetText">{{tweet.text}}</div>
+          </div>
+        </fieldset>
+
+      </mat-tab>
+      <mat-tab label="By Tags">
+        <fieldset>
+          <legend>Search By Relevant Tags</legend>
+          <div class="byTagTitle">Select up to 3 tags below:</div>
+          <div class="tagTitle">Industry</div>
+          <mat-chip-list class="searchTagsList">
+            <mat-chip class="example-box" (click)="addTag(tag)" *ngFor="let tag of industryTags">
+              {{tag}}
+            </mat-chip>
+          </mat-chip-list>
+
+          <div class="tagTitle">Lifestyle</div>
+          <mat-chip-list class="searchTagsList">
+            <mat-chip class="example-box" (click)="addTag(tag)" *ngFor="let tag of lifestyleTags">
+              {{tag}}
+            </mat-chip>
+          </mat-chip-list>
+
+          <div class="tagTitle">Art</div>
+          <mat-chip-list class="searchTagsList">
+            <mat-chip class="example-box" (click)="addTag(tag)" *ngFor="let tag of artTags">
+              {{tag}}
+            </mat-chip>
+          </mat-chip-list>
+
+          <div class="searchClearButtons">
+            <button type="button" class="tagSubmit" (click)="getHandlesByTags()" class="submit">Submit</button>
+            <button type="button" (click)="clearTags()" class="tagClear" class="clear">Clear</button>
+          </div>
+        </fieldset>
+        <fieldset class="results" *ngIf="combinedSearchResults.length > 0">
+          <legend>Results</legend>
+          <div class="randomWomenGrid">
+            <div class="randomWoman" *ngFor="let woman of combinedSearchResults; let i = index">
+              <div class="tweetsHeader">
+                <img class="profileImage" src="{{woman[i].user.profile_image_url}}">
+                <div class="names">
+                  <div class="name">{{woman[i].user.name}}</div>
+                  <div class="userHandle">@{{woman[i].user.screen_name}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </mat-tab>
+
+      <mat-tab label="Add A Woman">
+        <fieldset>
+          <legend>Add An Influential Woman To The Database:</legend>
+          <div class="newUserTitle">Enter a Twitter handle:</div>
+          <input type="text" placeholder="@Twitter Handle" class="newHandleInput" />
+          <div>Select relevant tag(s) (up to 3):</div>
+          <div>
+            <mat-chip-list class="newUser">
+              <mat-chip class="example-box" class="newUserTag" (click)="selectNewUserTag(tag)"
+                *ngFor="let tag of allTags">
+                {{tag}}
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+          <div class="searchClearButtons">
+            <button type="button" (click)="addHandle()" class="tagSubmit" class="submit">Submit</button>
+            <button type="button" class="tagClear" class="clear">Clear</button>
+          </div>
+        </fieldset>
+      </mat-tab>
+    </mat-tab-group>
     <button class="toggleNavButton" type="button" mat-button (click)="drawer.toggle()">Open Nav</button>
-  <h1 class="trivia">Women's History Trivia</h1>
-
-  <button type="button" class="collapsible" (click)="showHistory()">
-    What is the origin of Women's History Month?
-  </button>
-
-  <div class="content">
-    <p class="history">
-      Women's History Month had its origins as a national celebration in 1981
-      when Congress passed Pub. L. 97-28 which authorized and requested the
-      President to proclaim the week beginning March 7, 1982 as “Women's History
-      Week.”
-    </p>
-  </div>
-  <h1>Search Influential Women on Twitter</h1>
-
-<mat-tab-group animationDuration="0ms" mat-align-tabs="center">
-
-  <mat-tab label="Random 10 Women">
-    <fieldset> 
-      <legend>Below are 10 random women selected from the database:</legend>
-      <div class="randomWomenGrid">
-      <div class="randomWoman" *ngFor="let woman of randomWomen; let i = index">
-        <div class="tweetsHeader">
-        <img class="profileImage" src="{{woman[0].user.profile_image_url}}">
-        <div class="names">
-        <div class="name">{{woman[0].user.name}}</div>
-        <div class="userHandle">@{{woman[0].user.screen_name}}</div>
-      </div>
+    <h2 class="trivia">Women's History Trivia</h2>
+    <button type="button" class="collapsible" (click)="showHistory()">
+      What is the origin of Women's History Month?
+    </button>
+    <div class="content">
+      <p class="history">
+        Women's History Month had its origins as a national celebration in 1981
+        when Congress passed Pub. L. 97-28 which authorized and requested the
+        President to proclaim the week beginning March 7, 1982 as “Women's History
+        Week.”
+      </p>
     </div>
-      </div>
-    </div>
-      <div class="randomButtonDiv"><button type="button" class="randomButton" class="submit" (click)="getRandomWomen()">Show Me 10 New Women</button></div>
-    </fieldset>
-  </mat-tab>
-
-  <mat-tab label="By Handle">
-    <div class="searchHandle">
-      <span>Enter Twitter Handle of an Influential Woman:</span>
-      <input type="text" placeholder="@twitter handle" class="searchInput" (keyup.enter)="getTweetsByUser()"
-    /></div>
-    <div class="searchClearButtons">
-    <button type="button" class="submit" (click)="getTweetsByUser()">Submit</button>
-  </div>
-  <fieldset class="results" *ngIf= "tweets.length > 0">
-    <div class="tweetsHeader">
-      <img class="profileImage" src="{{tweets[0].user.profile_image_url}}">
-      <div class="names">
-      <div class="name">{{tweets[0].user.name}}</div>
-      <div class="userHandle">@{{tweets[0].user.screen_name}}</div>
-    </div>
-  </div>
-   <div class="individualTweet" *ngFor="let tweet of tweets">
-    <div class="tweetDate">{{tweet.created_at}}</div>
-    <div class="tweetText">{{tweet.text}}</div>
-   </div>
-  </fieldset>
-
-</mat-tab>
-  <mat-tab label="By Tags">
-    <fieldset>
-      <legend>Search By Relevant Tags</legend>
-    <div class="byTagTitle">Select up to 3 tags below:</div>
-    <div class="tagTitle">Industry</div>
-      <mat-chip-list
-  class="searchTagsList"
-  >
-  <mat-chip
-    class="example-box"
-    (click) = "addTag(tag)"
-    *ngFor="let tag of industryTags">
-    {{tag}}
-  </mat-chip>
-</mat-chip-list>
-   
-       <div class="tagTitle">Lifestyle</div>
-      <mat-chip-list
-      class="searchTagsList"
-     >
-      <mat-chip
-        class="example-box"
-        (click) = "addTag(tag)"
-        *ngFor="let tag of lifestyleTags">
-        {{tag}}
-      </mat-chip>
-    </mat-chip-list>
- 
-    <div class="tagTitle">Art</div>
-      <mat-chip-list
-      class="searchTagsList"
-      >
-      <mat-chip
-        class="example-box"
-        (click) = "addTag(tag)"
-        *ngFor="let tag of artTags">
-        {{tag}}
-      </mat-chip>
-    </mat-chip-list>
-    
-    <div class="searchClearButtons">
-    <button type="button" class="tagSubmit"  (click)="getHandlesByTags()" class="submit">Submit</button>
-    <button type="button" (click)="clearTags()" class="tagClear" class="clear">Clear</button>
-  </div>
-</fieldset>
-  <fieldset class="results" *ngIf= "combinedSearchResults.length > 0">
-    <legend>Results</legend>
-    <div class="randomWomenGrid">
-      <div class="randomWoman" *ngFor="let woman of combinedSearchResults; let i = index">
-        <div class="tweetsHeader">
-        <img class="profileImage" src="{{woman[i].user.profile_image_url}}">
-        <div class="names">
-        <div class="name">{{woman[i].user.name}}</div>
-        <div class="userHandle">@{{woman[i].user.screen_name}}</div>
-      </div>
-    </div>
-      </div>
-    </div>
-    </fieldset>
-  </mat-tab>
-
-  <mat-tab label="Add A Woman">
-    <fieldset>
-      <legend>Add An Influential Woman To The Database:</legend>
-        <div class="newUserTitle">Enter a Twitter handle:</div>
-        <input type="text" placeholder="@Twitter Handle" class="newHandleInput"
-      />
-      <div>Select relevant tag(s) (up to 3):</div>
-      <div>
-        <mat-chip-list
-        class="newUser"
-        >
-        <mat-chip
-          class="example-box"
-          class="newUserTag"
-          (click)="selectNewUserTag(tag)"
-          *ngFor="let tag of allTags">
-          {{tag}}
-        </mat-chip>
-      </mat-chip-list>
-      </div>
-      <div class="searchClearButtons">
-        <button type="button" (click)="addHandle()" class="tagSubmit" class="submit">Submit</button>
-        <button type="button" class="tagClear" class="clear">Clear</button>
-      </div>
-    </fieldset>
-  </mat-tab>
-</mat-tab-group>
-</mat-drawer-container>
+  </mat-drawer-container>
 </div>
