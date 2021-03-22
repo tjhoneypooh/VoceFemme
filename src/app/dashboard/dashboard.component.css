@@ -1,16 +1,39 @@
 .wrapper {
   height: 85vh;
-
+  background-color: white;
 }
 
-.app-name {
-  /* display: none; */
-  visibility: hidden;
+#header {
+  background-image: url(/assets/images/banner_image.png);
+  /* background: #664c8f; */
+  height: auto;
+  padding: 100px 100px
+}
+h3 {
+  text-align: center;
+  color: black;
+  font-family: 'Open Sans', sans-serif ;
+  font-weight: 600;
 }
 
-.noun {
-  visibility: hidden;
+h1 {
+  color: black;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
 }
+/* a#download {
+  display: block;
+  text-align: center;
+  width: 150px;
+  margin: 0px auto;
+  padding: 20px;
+  color: white;
+  text-transform: uppercase;
+  font-family: Arial;
+  border: 1px solid #fff;
+  text-decoration: none;
+  border-radius: 10px;
+} */
 
 fieldset {
   border: 2px solid #43F0DC;
@@ -52,6 +75,12 @@ mat-drawer-content {
   cursor: pointer;
 }
 
+.trivia {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0px;
+}
+
 .collapsible {
   background-color: rgba(255, 255, 255, 0.5);
   color: #444;
@@ -69,12 +98,14 @@ mat-drawer-content {
 
 .history {
   display: none;
+  width: 100vhx;
   text-align: center;
   margin: 5px 10px;
 }
 
 mat-tab-group {
   width: 100vw;
+  margin-top: 50px;
 }
 
 .randomWomenGrid {
@@ -150,25 +181,26 @@ mat-tab-group {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  border: solid gray 2px;
+  border: solid #27796f 2px;
 }
 .names {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 10px;
+  color: black;
 }
 .name {
   font-weight: bold;
   font-size: 16px;
 }
 .userHandle {
-  color: white;
+  color: #f05be6;
   font-size: 16px;
 }
 
 .individualTweet {
-  border-bottom: solid 2px white;
+  border-bottom: solid 2px black;
   margin-bottom: 20px;
   padding-bottom: 10px;
 }
@@ -225,23 +257,6 @@ mat-chip-list.newUser {
 }
 
 @media only screen and (min-width: 1440px) {
-  .app-name {
-    visibility: visible;
-    text-align: center;
-    font-size: 8em;
-    color: white;
-    margin: 100px 86px 0px 86px;
-  }
-
-  .noun {
-    visibility: visible;
-    text-align: center;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    margin: 0px 86px 80px 86px;
-  }
-
   .mat-tab-group {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
