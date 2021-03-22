@@ -14,8 +14,8 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  background: #e570e7;
-  background: -moz-linear-gradient(
+  background: #EEC575;
+  /* background: -moz-linear-gradient(
     45deg,
     #e570e7 0%,
     #bf7ca3 68%,
@@ -32,7 +32,7 @@
     #e570e7 0%,
     #bf7ca3 68%,
     #a849a3 100%
-  );
+  ); */
 }
 
 .wrapper {
@@ -66,4 +66,8 @@
 display: flex;
 align-items: center;
 justify-content: center;
+}
+
+@media only screen and (min-width: 1440px) {
+  
 }
