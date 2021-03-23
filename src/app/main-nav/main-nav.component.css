@@ -1,5 +1,6 @@
-.sidenav-container {
-  height: 100%;
+.sidenavContainer {
+  height: 100vh;
+  width: 100vw;
 }
 
 .sidenav {
@@ -15,58 +16,16 @@
   top: 0;
   z-index: 1;
   background: #EEC575;
-  /* background: -moz-linear-gradient(
-    45deg,
-    #e570e7 0%,
-    #bf7ca3 68%,
-    #a849a3 100%
-  ); 
-  background: -webkit-linear-gradient(
-    45deg,
-    #e570e7 0%,
-    #bf7ca3 68%,
-    #a849a3 100%
-  );
-  background: linear-gradient(
-    45deg,
-    #e570e7 0%,
-    #bf7ca3 68%,
-    #a849a3 100%
-  ); */
 }
 
-.wrapper {
-  padding: 50px;
-  text-align: center;
-  background: #e570e7;
-  background: -moz-linear-gradient(
-    45deg,
-    #e570e7 0%,
-    #bf7ca3 68%,
-    #a849a3 100%
-  ); 
-  background: -webkit-linear-gradient(
-    45deg,
-    #e570e7 0%,
-    #bf7ca3 68%,
-    #a849a3 100%
-  );
-  background: linear-gradient(
-    45deg,
-    #e570e7 0%,
-    #bf7ca3 68%,
-    #a849a3 100%
-  ); 
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e570e7', endColorstr='#a849a3',GradientType=1 ); 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: black;
-      height: 100%;
-      width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
+
+@media only screen and (min-width: 768px) {
+  .sidenavContainer {
+    width: 100%;
+  }
+
 }
+
 
 @media only screen and (min-width: 1440px) {
   

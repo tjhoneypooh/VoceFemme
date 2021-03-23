@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenavContainer">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -21,7 +21,6 @@
       </button>
       <div class="title">
         <div class="headerTitle">{{ this.headerText }}</div>
-       <div class="underText">{{ this.underText}}</div>
        </div>
     </mat-toolbar>
     <ng-content></ng-content>
