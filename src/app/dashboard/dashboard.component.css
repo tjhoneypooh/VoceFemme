@@ -1,15 +1,13 @@
 .wrapper {
   height: 85vh;
+  width: 100%;
   background-color: white;
 }
 
-
-
 #header {
   background-image: url(/assets/images/banner_v2.png);
-  /* border-bottom: 5px solid #a32e9b; */
   height: auto;
-  padding: 100px 100px
+  padding: 100px 100px;
 }
 
 h3 {
@@ -86,6 +84,7 @@ mat-drawer-content {
 .example-sidenav div:hover {
   cursor: pointer;
 }
+
 .trivia-container {
   background-color: #EEC575;
   border-radius: 8px;
@@ -130,7 +129,7 @@ mat-drawer-content {
 }
 
 mat-tab-group {
-  width: 100vw;
+  width: 100%;
   padding-top: 10px;
   padding-bottom: 20px;
   background-color: white;
@@ -324,16 +323,14 @@ mat-chip-list.newUser {
     display: none;
   }
   .wrapper {
-    width: 85vw;
     height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
 
   .searchInput {
     width: 50%;
-  }
-
-  mat-tab-group {
-    width: 85vw;
   }
 
   .column-left{ float: left; width: 33%; }
