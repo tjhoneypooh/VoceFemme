@@ -12,8 +12,8 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  ApiUrl = 'http://localhost:8080/twitter';
-  databaseUrl= 'http://localhost:8080/db';
+  ApiUrl = 'https://vocefemme-app.herokuapp.com/twitter';
+  databaseUrl= 'https://vocefemme-app.herokuapp.com/db';
       
   public ApiCall() {
      return this.http.get(this.ApiUrl, { responseType: "json" });
