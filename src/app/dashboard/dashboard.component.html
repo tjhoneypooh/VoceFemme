@@ -10,7 +10,7 @@
 
   <div id="header">
     <div class="">
-      <h3>(noun): to lift one's voice in order to lift others </h3>
+      <h3>(verb): to lift one's voice in order to lift others </h3>
       <h1>[voe-che, fehm]</h1>
     </div>
   </div>
@@ -66,21 +66,21 @@
         <div class="byTagTitle">Select up to 3 tags below:</div>
         <div class="tagTitle">Industry</div>
         <mat-chip-list class="searchTagsList">
-          <mat-chip class="example-box" (click)="addTag(tag)" *ngFor="let tag of industryTags">
+          <mat-chip class="tag-box" (click)="addTag(tag)" *ngFor="let tag of industryTags">
             {{tag}}
           </mat-chip>
         </mat-chip-list>
 
         <div class="tagTitle">Lifestyle</div>
         <mat-chip-list class="searchTagsList">
-          <mat-chip class="example-box" (click)="addTag(tag)" *ngFor="let tag of lifestyleTags">
+          <mat-chip class="tag-box" (click)="addTag(tag)" *ngFor="let tag of lifestyleTags">
             {{tag}}
           </mat-chip>
         </mat-chip-list>
 
         <div class="tagTitle">Art</div>
         <mat-chip-list class="searchTagsList">
-          <mat-chip class="example-box" (click)="addTag(tag)" *ngFor="let tag of artTags">
+          <mat-chip class="tag-box" (click)="addTag(tag)" *ngFor="let tag of artTags">
             {{tag}}
           </mat-chip>
         </mat-chip-list>
@@ -128,6 +128,21 @@
     </mat-tab>
   </mat-tab-group>
   <!-- <button class="toggleNavButton" type="button" mat-button (click)="drawer.toggle()">Open Nav</button> -->
+  
+  <div class="trivia-container">
+    <h2 class="trivia">Women's History Month</h2>
+    <button type="button" class="collapsible" (click)="showHistory()">
+      Learn about it's origin!
+    </button>
+    <div class="content">
+      <p class="history">
+        Women's History Month had its origins as a national celebration in 1981
+        when Congress passed Pub. L. 97-28 which authorized and requested the
+        President to proclaim the week beginning March 7, 1982 as “Women's History
+        Week.”
+      </p>
+    </div>
+  </div>
   <div class="fact-container">
     <div class="column-left"><img src="/assets/images/ceo_stat.png" alt=""></div>
     <div class="column-right"><img src="/assets/images/stats.png" alt=""></div>
@@ -143,19 +158,6 @@
   </div> -->
 
 
-  <div class="trivia-container">
-    <h2 class="trivia">Women's History Month</h2>
-    <button type="button" class="collapsible" (click)="showHistory()">
-      Learn about it's origin!
-    </button>
-    <div class="content">
-      <p class="history">
-        Women's History Month had its origins as a national celebration in 1981
-        when Congress passed Pub. L. 97-28 which authorized and requested the
-        President to proclaim the week beginning March 7, 1982 as “Women's History
-        Week.”
-      </p>
-    </div>
-  </div>
+  
   <!-- </mat-drawer-container> -->
 </div>

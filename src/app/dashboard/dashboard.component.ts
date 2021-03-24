@@ -104,7 +104,7 @@ export class DashboardComponent implements OnInit {
       console.log(data);
      for (let i = 0; i < data.length; i++) {
        if (data[i].group_name == 'Arts') {
-         this.artTags.push(data[i]);
+         this.artTags.push(data[i].tag);
        } else if (data[i].group_name == 'Lifestyle') {
         this.lifestyleTags.push(data[i].tag);
        } else {
