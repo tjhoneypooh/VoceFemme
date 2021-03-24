@@ -6,8 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServiceService {
 
-  headerText = 'VOCEFEMME';
-  underText = '';
   httpClient: any;
 
   constructor(private http: HttpClient) { }
@@ -41,17 +39,6 @@ export class ServiceService {
 
   getTweetsByUser(username: string) {
     return this.http.get(`${this.ApiUrl}/${username}`, { responseType: "json" });
-  }
-
-  updateHeader(text: string, underText: string) {
-    this.headerText = text;
-    this.underText = underText;
-  }
-  getHeaderText() {
-    return this.headerText;
-  }
-  getUnderText() {
-    return this.underText;
   }
 
   addTagMapping(handle_id: number, tag_id: number) {
