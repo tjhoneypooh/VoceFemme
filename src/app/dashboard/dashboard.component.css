@@ -367,7 +367,6 @@ mat-chip-list.newUser {
   h1 {
     margin-top: 0%;
     color:#a32e9b;
-    text-shadow: 0px 2px 3px #555;
   }
 
   .column-left{ float: left; width: 33%; }
