@@ -42,7 +42,7 @@ h1 {
 } */
 
 fieldset {
-  border: 2px solid #43F0DC;
+  border: 2px solid #B0D8FF;
   border-radius:8px;
   margin: 10px;
 }
@@ -86,7 +86,7 @@ mat-drawer-content {
 }
 
 .trivia-container {
-  background-color: #EEC575;
+  background-color: #B0D8FF;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding-top: 20px;
@@ -124,7 +124,7 @@ mat-drawer-content {
   width: 100vhx;
   text-align: center;
   margin: 5px 10px;
-  padding-bottom: 30px;
+  padding: 0px 40px 30px 40px;
   color: white;
   font-family: 'Open Sans', sans-serif;
 }
@@ -167,7 +167,7 @@ mat-tab-group {
   padding-left: 5px;
   margin: 10px;
   border-radius: 5px;
-  border: solid 2px #43f0dc;
+  border: solid 2px #B0D8FF;
   outline: none;
 }
 
@@ -367,6 +367,7 @@ mat-chip-list.newUser {
   h1 {
     margin-top: 0%;
     color:#a32e9b;
+    text-shadow: 0px 2px 3px #555;
   }
 
   .column-left{ float: left; width: 33%; }
