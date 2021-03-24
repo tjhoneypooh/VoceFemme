@@ -5,6 +5,12 @@
 
 .sidenav {
   width: 200px;
+  background-color: pink;
+}
+
+img {
+  width: 70%;
+  padding-top: 10px;
 }
 
 .sidenav .mat-toolbar {
