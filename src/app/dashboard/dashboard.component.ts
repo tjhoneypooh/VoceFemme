@@ -18,7 +18,6 @@ export class DashboardComponent implements OnInit {
   industryTags: any = [];
   lifestyleTags: any = [];
   artTags: any = [];
-  allTags: any = [];
   selectedTags: any = [];
   newUserSelectedTags: any = [];
   tags: any = [];
@@ -42,6 +41,7 @@ export class DashboardComponent implements OnInit {
 
   clearTags() {
     this.selectedTags = [];
+    this.combinedSearchResults = [];
   }
 
   initialSearch() {
@@ -106,9 +106,6 @@ export class DashboardComponent implements OnInit {
        }
      }
 
-     for (let i = 0; i < data.length; i++) {
-       this.allTags.push(data[i]);
-     }
     })
   }
 

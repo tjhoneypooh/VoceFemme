@@ -105,12 +105,31 @@
         <input type="text" placeholder="@Twitter Handle" class="newHandleInput" />
         <div>Select relevant tag(s) (up to 3):</div>
         <div>
+
+          <div class="tagTitle">Lifestyle</div>
           <mat-chip-list class="newUser">
             <mat-chip class="example-box" class="newUserTag" (click)="selectNewUserTag(tag)"
-              *ngFor="let tag of allTags">
-              {{tag.tag}}
+              *ngFor="let tag of lifestyleTags">
+              {{tag}}
             </mat-chip>
           </mat-chip-list>
+
+          <div class="tagTitle">Art</div>
+          <mat-chip-list class="newUser">
+            <mat-chip class="example-box" class="newUserTag" (click)="selectNewUserTag(tag)"
+              *ngFor="let tag of artTags">
+              {{tag}}
+            </mat-chip>
+          </mat-chip-list>
+
+          <div class="tagTitle">Industry</div>
+          <mat-chip-list class="newUser">
+            <mat-chip class="example-box" class="newUserTag" (click)="selectNewUserTag(tag)"
+              *ngFor="let tag of industryTags">
+             {{tag}}
+            </mat-chip>
+          </mat-chip-list>
+          
         </div>
         <div class="searchClearButtons">
           <button type="button" (click)="addHandle()" class="tagSubmit" class="submit">Submit</button>
