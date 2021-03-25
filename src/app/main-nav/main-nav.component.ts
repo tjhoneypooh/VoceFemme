@@ -17,13 +17,13 @@ export class MainNavComponent {
       shareReplay()
     );
 
-    get headerText() {
-      return this.serviceService.getHeaderText();
-    }
+    // get headerText() {
+    //   return this.serviceService.getHeaderText();
+    // }
   
-    get underText() {
-      return this.serviceService.getUnderText();
-    }
+    // get underText() {
+    //   return this.serviceService.getUnderText();
+    // }
 
   constructor(private breakpointObserver: BreakpointObserver, private serviceService: ServiceService) {}
 
