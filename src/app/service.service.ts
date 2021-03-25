@@ -10,8 +10,8 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  ApiUrl = 'https://vocefemme-surge.sh/twitter';
-  databaseUrl= 'https://vocefemme-surge.sh/db';
+  ApiUrl = 'https://git.heroku.com/vocefemme-app.git/twitter';
+  databaseUrl= 'https://git.heroku.com/vocefemme-app.git/db';
       
   public ApiCall() {
      return this.http.get(this.ApiUrl, { responseType: "json" });
