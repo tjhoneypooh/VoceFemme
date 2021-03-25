@@ -3,7 +3,6 @@ import { MatDrawer, matDrawerAnimations } from '@angular/material/sidenav';
 import { Data } from '@angular/router';
 import { ManageDataService } from '../manage-data.service';
 import { ServiceService } from '../service.service';
-import { twitterUser } from '../twitterUser';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,15 +18,12 @@ export class DashboardComponent implements OnInit {
   industryTags: any = [];
   lifestyleTags: any = [];
   artTags: any = [];
-  allTags: any = [];
   selectedTags: any = [];
   newUserSelectedTags: any = [];
   tags: any = [];
   randomWomen: any = [];
   searchResults: any = [];
   combinedSearchResults: any = [];
-  // addedUSer: twitterUser = {}
-
   
   constructor(private serviceService: ServiceService, private manageDataService: ManageDataService) { }
 
@@ -42,12 +38,10 @@ export class DashboardComponent implements OnInit {
       this.selectedTags.splice(0, 1);
     }
   }
+
   clearTags() {
     this.selectedTags = [];
-  }
-
-  clearSubmitUser() {
-
+    this.combinedSearchResults = [];
   }
 
   initialSearch() {
@@ -112,9 +106,6 @@ export class DashboardComponent implements OnInit {
        }
      }
 
-     for (let i = 0; i < data.length; i++) {
-       this.allTags.push(data[i]);
-     }
     })
   }
 
@@ -131,21 +122,20 @@ export class DashboardComponent implements OnInit {
         } 
       })
     }
-   console.log(this.combinedSearchResults);
   }
 
   getRandomWomen() {
     this.randomWomen = [];
     this.serviceService.getDatabaseAllWomen().subscribe((data: any) => {
-      for (let i = 0; i < 10; i++) {
-        let rndNum = Math.floor(Math.random() * data.length);
-        let modData = data[rndNum].handle;
+
+      data.sort(() => Math.random() - 0.5);
+      for (let i=0; i < 10; i++) {
+        let modData = data[i].handle;
         let rndWoman = modData.substring(1);
         this.serviceService.getTweetsByUser(rndWoman).subscribe((data) => {
           this.randomWomen.push(data);
         });
       }
-      console.log(this.randomWomen);
     })
   }
 
@@ -160,8 +150,6 @@ export class DashboardComponent implements OnInit {
         console.log(handle_id, tag_id);
         this.serviceService.addTagMapping(handle_id, tag_id).subscribe(() => {console.log("done")}, (error) => {console.log(error)})
       })
-      //now just need to add tags to each handle. put call?
-      //need to clear database out of 'null' things I added in.
     });
   }
 

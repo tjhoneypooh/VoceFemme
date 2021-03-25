@@ -4,14 +4,13 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
       <img src="/assets/images/VoceFemme_logo_bird_white.png" alt="">
-    <!-- <mat-toolbar></mat-toolbar> -->
     <mat-nav-list>
       <a class="dash" mat-list-item href="#" routerLink="/dashboard">Dashboard</a>
       <a class="about-text" mat-list-item href="#" routerLink="/about">About</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar class="mobileHeader" color="primary">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -21,7 +20,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div class="title">
-        <div class="headerTitle">{{ this.headerText }}</div>
+        <div class="headerTitle"><img src="/assets/images/VoceFemme_logo.png" alt=""></div>
        </div>
     </mat-toolbar>
     <ng-content></ng-content>

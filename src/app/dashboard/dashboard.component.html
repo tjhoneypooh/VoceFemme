@@ -1,12 +1,4 @@
 <div class="wrapper">
-  <!-- <mat-drawer-container class="example-container">
-  <mat-drawer #drawer class="example-sidenav" mode="over">
-    <div routerLink="/dashboard">Dashboard</div>
-    <div routerLink="/about">About</div>
-  </mat-drawer> -->
-  <!-- <button class="toggleNavButton" type="button" mat-button (click)="drawer.toggle()">Open Nav</button> -->
-  <!-- <h1 class="app-name">VoceFemme</h1>
-    <h3 class="noun">[voe-che, fehm] noun: feminine voice; to lift one's voice in order to lift others </h3> -->
 
   <div id="header">
     <div class="">
@@ -113,12 +105,31 @@
         <input type="text" placeholder="@Twitter Handle" class="newHandleInput" />
         <div>Select relevant tag(s) (up to 3):</div>
         <div>
+
+          <div class="tagTitle">Lifestyle</div>
           <mat-chip-list class="newUser">
             <mat-chip class="example-box" class="newUserTag" (click)="selectNewUserTag(tag)"
-              *ngFor="let tag of allTags">
-              {{tag.tag}}
+              *ngFor="let tag of lifestyleTags">
+              {{tag}}
             </mat-chip>
           </mat-chip-list>
+
+          <div class="tagTitle">Art</div>
+          <mat-chip-list class="newUser">
+            <mat-chip class="example-box" class="newUserTag" (click)="selectNewUserTag(tag)"
+              *ngFor="let tag of artTags">
+              {{tag}}
+            </mat-chip>
+          </mat-chip-list>
+
+          <div class="tagTitle">Industry</div>
+          <mat-chip-list class="newUser">
+            <mat-chip class="example-box" class="newUserTag" (click)="selectNewUserTag(tag)"
+              *ngFor="let tag of industryTags">
+             {{tag}}
+            </mat-chip>
+          </mat-chip-list>
+          
         </div>
         <div class="searchClearButtons">
           <button type="button" (click)="addHandle()" class="tagSubmit" class="submit">Submit</button>
@@ -127,7 +138,6 @@
       </fieldset>
     </mat-tab>
   </mat-tab-group>
-  <!-- <button class="toggleNavButton" type="button" mat-button (click)="drawer.toggle()">Open Nav</button> -->
   
   <div class="trivia-container">
     <h2 class="trivia">Women's History Month</h2>
@@ -149,15 +159,4 @@
     <div class="column-center"><img src="/assets/images/phone.png" alt=""></div>
   </div>
 
-  <!-- <div class="post-container">
-    <div class="post-thumb"><img src="/assets/images/300_stat.png" /></div>
-    <div class="post-content">
-      <h3 class="post-title">Did You Know?</h3>
-      <p class="twitter-percent">As of January 2021, a whopping 61.6% of users are male. </p>
-    </div>
-  </div> -->
-
-
-  
-  <!-- </mat-drawer-container> -->
 </div>
